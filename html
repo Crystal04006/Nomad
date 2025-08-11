@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nomad</title>
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Nomad</h1>
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+  <main>
+    <section class="selection-section">
+      <label for="stateSelect">Select State</label>
+      <select id="stateSelect">
+        <option value="" disabled selected>Choose a state</option>
+      </select>
+
+      <label for="citySelect" class="hidden">Select City / Place</label>
+      <select id="citySelect" class="hidden">
+        <option value="" disabled selected>Choose a city/place</option>
+      </select>
+    </section>
+
+    <section id="detailsSection" class="details-section hidden">
+      <div class="place-header">
+        <h2 id="placeName"></h2>
+        <span id="popularityTag" class="popularity-tag"></span>
+      </div>
+      <p class="location" id="placeLocation"></p>
+      <p class="description" id="placeDescription"></p>
+
+      <div id="imagesContainer" class="images-container"></div>
+
+      <button id="bookingBtn" class="booking-btn hidden" target="_blank" rel="noopener noreferrer">Book Now</button>
+
+      <div id="map"></div>
+
+      <div class="transport-info">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="bus-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 13h18M7 17h10M5 7h14l1 6H4l1-6zM6 17v2a1 1 0 001 1h1v-3H6zm10 0v3h1a1 1 0 001-1v-2h-2z"
+          />
+        </svg>
+        <p id="transportInfo" class="info-text">Loading route info...</p>
+      </div>
+
+      <button id="addToPlanBtn" class="add-plan-btn">Add to Plan</button>
+      <button id="clearPlanBtn" class="clear-plan-btn">Clear Plan</button>
+    </section>
+
+    <section class="plan-section">
+      <h3>Your Plan</h3>
+      <ul id="planList" class="plan-list"></ul>
+      <button id="generatePlanBtn" disabled>Create Outing Plan</button>
+      <pre id="finalPlan" class="final-plan"></pre>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    crossorigin=""
+  />
+  <script src="app.js"></script>
+</body>
+</html>
